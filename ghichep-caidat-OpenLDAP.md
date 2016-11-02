@@ -107,4 +107,59 @@
 
 	root@u14-vagrant:~#
 
+- Sau khi add thêm 2 OU, sử dụng lệnh `slapcat` sẽ thấy có thêm output mới như bên dưới
 
+	root@u14-vagrant:~# slapcat
+	dn: dc=congto,dc=vn
+	objectClass: top
+	objectClass: dcObject
+	objectClass: organization
+	o: CONGTO
+	dc: congto
+	structuralObjectClass: organization
+	entryUUID: 88c7f1e2-34f7-1036-8647-5de91d1cb62b
+	creatorsName: cn=admin,dc=congto,dc=vn
+	createTimestamp: 20161102032357Z
+	entryCSN: 20161102032357.374676Z#000000#000#000000
+	modifiersName: cn=admin,dc=congto,dc=vn
+	modifyTimestamp: 20161102032357Z
+
+	dn: cn=admin,dc=congto,dc=vn
+	objectClass: simpleSecurityObject
+	objectClass: organizationalRole
+	cn: admin
+	description: LDAP administrator
+	userPassword:: e1NTSEF9RUwyVXZEQWZ6NWdHb1IrRVpseDBCZkt4dFpwamlzREQ=
+	structuralObjectClass: organizationalRole
+	entryUUID: 88c8deae-34f7-1036-8648-5de91d1cb62b
+	creatorsName: cn=admin,dc=congto,dc=vn
+	createTimestamp: 20161102032357Z
+	entryCSN: 20161102032357.380735Z#000000#000#000000
+	modifiersName: cn=admin,dc=congto,dc=vn
+	modifyTimestamp: 20161102032357Z
+
+	dn: ou=people,dc=congto,dc=vn
+	objectClass: organizationalUnit
+	ou: people
+	structuralObjectClass: organizationalUnit
+	entryUUID: fcac0864-34f7-1036-8a89-0d5876863912
+	creatorsName: cn=admin,dc=congto,dc=vn
+	createTimestamp: 20161102032711Z
+	entryCSN: 20161102032711.807452Z#000000#000#000000
+	modifiersName: cn=admin,dc=congto,dc=vn
+	modifyTimestamp: 20161102032711Z
+
+	dn: ou=groups,dc=congto,dc=vn
+	objectClass: organizationalUnit
+	ou:: Z3JvdXBzIA==
+	structuralObjectClass: organizationalUnit
+	entryUUID: fcac3d3e-34f7-1036-8a8a-0d5876863912
+	creatorsName: cn=admin,dc=congto,dc=vn
+	createTimestamp: 20161102032711Z
+	entryCSN: 20161102032711.808809Z#000000#000#000000
+	modifiersName: cn=admin,dc=congto,dc=vn
+	modifyTimestamp: 20161102032711Z
+
+	root@u14-vagrant:~#
+
+- 

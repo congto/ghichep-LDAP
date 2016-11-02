@@ -8,10 +8,11 @@
 
 - Tải gói 
 
-      apt-get -y install slapd ldap-utils
+    apt-get -y install slapd ldap-utils
 
 - Sau khi cài đặt xong các gói của OpenLDAP, kiểm tra bằng lệnh `slapcat` có kết quả như sau
 
+	```sh
 	root@u14-vagrant:~# slapcat
 	dn: dc=nodomain
 	objectClass: top
@@ -40,18 +41,21 @@
 	entryCSN: 20161102031112.629040Z#000000#000#000000
 	modifiersName: cn=admin,dc=nodomain
 	modifyTimestamp: 20161102031112Z
-
+	```
 
 
 - Chạy lệnh dưới để khai báo lại các thông tin với LDAP vì mặc định sẽ là `nodomain`
 
+	```sh
 	sudo dpkg-reconfigure slapd
+	````
 
 - Nhập các tùy chọn khai báo theo hướng dẫn ở màn hình	
 
 - Sử dụng lệnh slapcat để kiểm tra, kết quả như dưới (lưu ý domain congto.vn)
 
-	root@u14-vagrant:~# slapcat
+    ```sh
+    root@u14-vagrant:~# slapcat
 	dn: dc=congto,dc=vn
 	objectClass: top
 	objectClass: dcObject
@@ -81,24 +85,30 @@
 	modifyTimestamp: 20161102032357Z
 
 	root@u14-vagrant:~#
+	```
 
 
 - Tạo file `base.ldif` với nội dung dưới
 
+	```sh
 	dn: ou=people,dc=congto,dc=vn
 	objectClass: organizationalUnit
 	ou: people
 
 	dn: ou=groups,dc=congto,dc=vn
 	objectClass: organizationalUnit
-	ou: groups 
+	ou: groups
+	```
 
 - Chạy lệnh dưới để add các OU (people, groups)
 
-	ldapadd -x -D cn=admin,dc=congto,dc=vn -W -f base.ldif 
+	```sh
+	ldapadd -x -D cn=admin,dc=congto,dc=vn -W -f base.ldif
+	```
 
 - Kết quả của lệnh trên
-
+	
+	```sh
 	root@u14-vagrant:~# ldapadd -x -D cn=admin,dc=congto,dc=vn -W -f base.ldif
 	Enter LDAP Password:
 	adding new entry "ou=people,dc=congto,dc=vn"
@@ -106,9 +116,11 @@
 	adding new entry "ou=groups,dc=congto,dc=vn"
 
 	root@u14-vagrant:~#
+	```
 
 - Sau khi add thêm 2 OU, sử dụng lệnh `slapcat` sẽ thấy có thêm output mới như bên dưới
 
+	```sh
 	root@u14-vagrant:~# slapcat
 	dn: dc=congto,dc=vn
 	objectClass: top
@@ -161,5 +173,6 @@
 	modifyTimestamp: 20161102032711Z
 
 	root@u14-vagrant:~#
+	```
 
 - 

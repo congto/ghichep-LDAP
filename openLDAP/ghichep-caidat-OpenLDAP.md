@@ -184,7 +184,7 @@
 
 	```sh
 	slappasswd 
-	``
+	```
 
 - Nhập mật khẩu muốn sử dụng, output sẽ là chuỗi ký tự, hãy chép lại chuỗi này để dùng ở đoạn dưới. Trong ví dụ này sẽ là `{SSHA}GABgiTnkTE9c3Y3Jij9U/122gkt0Ck2b`
 
@@ -231,7 +231,7 @@ adding new entry "cn=maianhbao,ou=groups,dc=congto,dc=vn"
 
 - Đây là việc add các user của Hệ điều hành (OS) vào LDAP, tức là các USER đã có trước đó (về bản chất 2 user này khác nhau, đây chỉ là động tác add các user của hệ điều hành vào LDAP mà thôi.)
 
-- Tạo file `ldapuser.sh` với nội dung dưới
+- Tạo file `ldapuser.sh` với nội dung dưới (tham khảo: https://gist.github.com/congto/4d83caa632a24764fb5dc76d67af48dd)
 
 	```
 	# extract local users and groups who have 1000-9999 digit UID
